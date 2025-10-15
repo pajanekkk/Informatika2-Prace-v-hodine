@@ -6,24 +6,60 @@ void vypocetBMR(double vah, double vys, std::string pohl, int vekovost);
 
 int main()
 {
-
-    std::cout << "Zadejte výšku v metrech: ";
     double vyska;
-    std::cin >> vyska;
-
-    std::cout << "Zadej váhu: ";
     double vaha;
-    std::cin >> vaha;
-
-    std::cout << "Zadej pohlaví: ";
     std::string pohlavi;
-    std::cin >> pohlavi;
-
-    std::cout << "Zadej věk: ";
     int vek;
-    std::cin >> vek;
 
-    int vyber;
+    int volba;
+
+    do
+    {
+        std::cout << "Zvol operaci(1 - BMI, 2 - BMR, 3 - Vypnuti): ";
+        std::cin >> volba;
+
+        switch (volba)
+        {
+        case 1:
+            std::cout << "Zadejte výšku v metrech: ";
+            std::cin >> vyska;
+
+            std::cout << "Zadej váhu: ";
+            std::cin >> vaha;
+
+            vypocetBMI(vaha, vyska);
+
+            break;
+
+        case 2:
+            std::cout << "Zadejte výšku v centimetrech: ";
+            std::cin >> vyska;
+
+            std::cout << "Zadej váhu: ";
+            std::cin >> vaha;
+
+            std::cout << "Zadej pohlaví(M/F): ";
+            std::cin >> pohlavi;
+            if (pohlavi != "M" && pohlavi != "F")
+            {
+                std::cout << "Špatně zadané pohlaví" << std::endl;
+                break;
+            }
+            std::cout << "Zadej věk: ";
+            std::cin >> vek;
+
+            vypocetBMR(vyska, vaha, pohlavi, vek);
+            break;
+
+        case 3:
+            std::cout << "Sbohem";
+            break;
+
+        default:
+            std::cout << "Neplatna volba";
+            break;
+        }
+    } while (volba != 3);
 }
 
 void vypocetBMI(double vah, double vys)
@@ -54,14 +90,14 @@ void vypocetBMI(double vah, double vys)
 void vypocetBMR(double vah, double vys, std::string pohl, int vekovost)
 {
     double bmr;
-    if (pohl == "Ž")
+    if (pohl == "F")
     {
 
-        bmr = 655.0955 + (9.5634 * vah) + (1, 8496 * vys) - (4.6756 * vekovost);
+        bmr = 655.0955 + (9.5634 * vah) + (1.8496 * vys) - (4.6756 * vekovost);
     }
     else if (pohl == "M")
     {
         bmr = 66.473 + (13.7516 * vah) + (5.0033 * vys) - (6.755 * vekovost);
     }
-    std::cout << "Tvoje BMR je: " << bmr << std::endl;
+    std::cout << "Tvoje BMR je: " << bmr << +" kcal/den" << std::endl;
 }
