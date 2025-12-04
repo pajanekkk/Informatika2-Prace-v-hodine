@@ -1,0 +1,8 @@
+INFO: Aplikace spuštěna
+INFO: Připojení k databázi
+WARNING: Vysoké využití paměti
+ERROR: Chyba připojení k serveru
+INFO: Odesílání dat
+ERROR: Timeout při zpracování
+WARNING: Nízký disk space
+ERROR: Neznámá chyba v logu

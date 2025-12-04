@@ -1,0 +1,3 @@
+ERROR: Chyba připojení k serveru
+ERROR: Timeout při zpracování
+ERROR: Neznámá chyba v logu
